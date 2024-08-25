@@ -13,12 +13,12 @@ function App() {
   const handleSubmit = async () => {
     try {
       const parsedJson = JSON.parse(jsonInput);
-      const res = await fetch('https://<your-backend-url>.com/bfhl', {
+      const res = await fetch('https://soumika-bajaj-1-3.onrender.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(parsedJson)
+        body: JSON.stringify(parsedJson),
       });
       const data = await res.json();
       setResponse(data);
@@ -30,7 +30,7 @@ function App() {
   };
 
   const handleOptionChange = (e) => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
+    const value = Array.from(e.target.selectedOptions, (option) => option.value);
     setSelectedOptions(value);
   };
 
@@ -59,17 +59,17 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-4">Your Roll Number</h1>
-        <input 
-          type="text" 
-          value={jsonInput} 
-          onChange={handleInputChange} 
-          placeholder='Enter JSON' 
+        <input
+          type="text"
+          value={jsonInput}
+          onChange={handleInputChange}
+          placeholder="Enter JSON"
           className="w-full p-2 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button 
+        <button
           onClick={handleSubmit}
           className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
         >
@@ -79,9 +79,9 @@ function App() {
 
         {response && (
           <div className="mt-4">
-            <select 
-              multiple={true} 
-              onChange={handleOptionChange} 
+            <select
+              multiple={true}
+              onChange={handleOptionChange}
               className="w-full p-2 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="Alphabets">Alphabets</option>
